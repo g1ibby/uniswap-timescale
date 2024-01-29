@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb-ha:pg16-all
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+
+volumes:
+  timescaledb-data:
